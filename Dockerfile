@@ -2,11 +2,12 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-# Install LangFlow
-RUN pip install langflow
+# Copy requirements and install
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port for LangFlow
+# Copy the rest of the files
+COPY . /app
+
 EXPOSE 7860
-
-# Run LangFlow
 CMD ["langflow", "run", "--host", "0.0.0.0", "--port", "7860"]

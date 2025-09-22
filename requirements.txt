@@ -1,0 +1,2 @@
+langflow==0.5.9
+PyPDF2
